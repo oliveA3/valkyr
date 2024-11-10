@@ -1,0 +1,134 @@
+* {
+	box-sizing: border-box;
+}
+
+body,
+div,
+a,
+h1,
+h2,
+h3,
+label {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	--dark-purple: #0e020f;
+	--light-purple: #9b67a6;
+
+	margin: auto;
+	font-family: Montserrat;
+	font-style: italic;
+}
+
+@media screen and (min-width: 600px) {
+	body {
+		overflow: hidden;
+	}
+}
+
+/*<<<-------------SNOW POINTER------------->>>*/
+span {
+	background: url(images/snowflake.png);
+	background-size: cover;
+	pointer-events: none;
+	position: absolute;
+
+	animation: flakes 2s linear forwards;
+}
+
+@keyframes flakes {
+	0% {
+		opacity: 1;
+		transition: filter 1s;
+	}
+	100% {
+		transform: translate(50%, 1000%) rotate(90deg);
+		opacity: 0;
+	}
+}
+
+/*<<<-------------SNOW CANVAS------------->>>*/
+#snow_canvas {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: -1;
+
+	background-image: linear-gradient(
+		var(--dark-purple) 90%,
+		rgb(186, 182, 218)
+	);
+}
+
+/*<<<-------------DRAGON------------->>>*/
+
+/*<<<-------------GALLERY------------->>>*/
+.gallery_container {
+	display: flex;
+	width: 80%;
+	height: 50dvh;
+
+	margin: 50px auto;
+	padding: 20px;
+	gap: 5px;
+
+	filter: drop-shadow(0 0 3px var(--light-purple));
+}
+
+.gallery-img {
+	width: 0;
+	flex-grow: 1;
+	object-fit: cover;
+
+	opacity: 0.9;
+	border-radius: 10px;
+
+	filter: grayscale(100) blur(0.4px);
+	transition: width 0.7s ease, filter 0.8s ease;
+}
+
+.gallery-img:hover,
+.gallery-img:active {
+	width: 300px;
+
+	object-fit: contain;
+	cursor: pointer;
+	filter: grayscale(0) blur(0);
+}
+
+/*<<<-------------MEDIA QUERIES------------->>>*/
+/*Needs adjustment...*/
+@media screen and (max-width: 600px) {
+	.gallery_container {
+		flex-direction: column;
+		height: 70dvh;
+		width: 70dvw;
+	}
+
+	.gallery-img {
+		height: 15%;
+		width: 100%;
+
+		margin: auto;
+		transition: height 0.8s ease, filter 0.8s ease;
+	}
+
+	.gallery-img:hover,
+	.gallery-img:active {
+		height: 70%;
+	}
+}
+
+/*<<<-------------FOOTER CARD------------->>>*/
+.card_container {
+	user-select: none;
+	padding: 0 100px;
+	margin-bottom: 50px;
+	text-align: center;
+
+	color: var(--light-purple);
+}
