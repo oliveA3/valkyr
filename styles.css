@@ -65,6 +65,34 @@ span {
 }
 
 /*<<<-------------DRAGON------------->>>*/
+.dragon_body {
+	cursor: pointer;
+	position: absolute;
+	z-index: 10;
+
+	top: 0;
+	left: 0;
+	width: 200px;
+	height: 200px;
+
+	background-image: url(images/dragon/dragon.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+	filter: drop-shadow(2px 10px 12px var(--light-purple));
+
+	animation: flying 5s forwards;
+}
+
+@keyframes flying {
+	0% {
+
+	}
+	100% {
+		transform: rotate(75deg);
+		top: 60%;
+		left: 75%;
+	}
+}
 
 /*<<<-------------GALLERY------------->>>*/
 .gallery_container {
