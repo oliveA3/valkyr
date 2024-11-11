@@ -65,37 +65,66 @@ span {
 }
 
 /*<<<-------------DRAGON------------->>>*/
-.dragon_body {
-	cursor: pointer;
-	position: absolute;
-	z-index: 10;
-
+.dragon_container {
 	top: 0;
 	left: 0;
+	position: absolute;
+	z-index: 100;
+
+	filter: drop-shadow(3px 6px 10px var(--light-purple));
+}
+
+.dragon_part {
 	width: 200px;
 	height: 200px;
 
-	background-image: url(images/dragon/dragon.png);
 	background-size: cover;
 	background-repeat: no-repeat;
-	filter: drop-shadow(2px 10px 12px var(--light-purple));
-
-	animation: flying 5s forwards;
+	background-position: center;
 }
 
-@keyframes flying {
-	0% {
+.dragon_body {
+	position: relative;
+	z-index: 200;
+	background-image: url(images/dragon/dragon_body.png);
+}
 
+.dragon_wing {
+	position: absolute;
+}
+
+.left_wing {
+	background-image: url(images/dragon/left_wing.png);
+	top: -10px;
+}
+
+.right_wing {
+	background-image: url(images/dragon/right_wing.png);
+	bottom: 30px;
+	left: -22px;
+}
+
+@keyframes flapLeft {
+	20% {
+		transform: rotate(-20deg);
 	}
 	100% {
-		transform: rotate(75deg);
-		top: 60%;
-		left: 75%;
+		transform: rotate(0deg);
+	}
+}
+
+@keyframes flapRight {
+	20% {
+		transform: rotate(6deg);
+	}
+	100% {
+		transform: rotate(0deg);
 	}
 }
 
 /*<<<-------------GALLERY------------->>>*/
 .gallery_container {
+	user-select: none;
 	display: flex;
 	width: 80%;
 	height: 50dvh;

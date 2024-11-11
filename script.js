@@ -65,5 +65,53 @@
 }
 
 /*Dragon Animation*/ {
+	const dragon = document.querySelector(".dragon_container");
+	const screenWidth = window.innerWidth;
+	const screenHeight = window.innerHeight;
 
+	function moveDragon() {
+		const targetX = Math.random() * (screenWidth - 300);
+		const targetY = Math.random() * (screenHeight - 300);
+
+		const duration = 2000;
+		const startTime = performance.now();
+
+		function updatePosition(currentTime) {
+			const elapsedTime = currentTime - startTime;
+			var progress = elapsedTime / duration;
+			progress = Math.min(progress, 1);
+
+			const newX = 200 + targetX * progress;
+			const newY = 200 + targetY * progress;
+
+			const dx = targetX - 200;
+			const dy = targetY - 200;
+			const angle = Math.atan2(dy, dx);
+
+			dragon.style.transform = `
+            translate(${newX}px, ${newY}px)
+            rotate(${angle * (200 / Math.PI)}deg)`;
+			dragon.style.transition = `transform ${
+				duration - elapsedTime
+			}ms ease-out`;
+
+			if (progress < 1) {
+				requestAnimationFrame(updatePosition);
+			}
+		}
+		requestAnimationFrame(updatePosition);
+	}
+
+	function animateWings() {
+		const leftWing = document.querySelector(".left_wing");
+		const rightWing = document.querySelector(".right_wing");
+
+		leftWing.style.animation = "flapLeft 5s infinite linear";
+		rightWing.style.animation = "flapRight 5s infinite linear";
+	}
+
+	dragon.addEventListener("mouseenter", () => {
+		moveDragon();
+		animateWings();
+	});
 }
