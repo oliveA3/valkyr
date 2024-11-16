@@ -215,10 +215,10 @@ span {
 	}
 
 	.gallery_container:hover ~ .card_container {
-		transform: translateY(310px)
+		transform: translateY(280px)
 	}
 
 	.gallery_container:active ~ .card_container {
-		transform: translateY(310px)
+		transform: translateY(280px)
 	}
 }
