@@ -19,7 +19,8 @@ body {
 
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	overflow-x: hidden;
+
 	margin: auto;
 	font-family: Montserrat;
 	font-style: italic;
@@ -139,16 +140,17 @@ span {
 	flex-grow: 1;
 	object-fit: cover;
 
-	opacity: 0.9;
+	opacity: 0.7;
 	border-radius: 10px;
 
 	filter: grayscale(100) blur(0.4px);
-	transition: width 0.7s ease, filter 0.8s ease;
+	transition: width 0.7s ease, filter 0.8s ease, opacity 0.5s ease;
 }
 
 .gallery-img:hover,
 .gallery-img:active {
 	width: 300px;
+	opacity: 0.9;
 
 	object-fit: contain;
 	cursor: pointer;
@@ -166,12 +168,6 @@ span {
 }
 
 /*<<<-------------MEDIA QUERIES------------->>>*/
-@media screen and (min-width: 650px) {
-	body {
-		overflow: hidden;
-	}
-}
-
 @media screen and (max-width: 650px) {
 	* {
 		box-sizing: border-box;
@@ -200,12 +196,13 @@ span {
 		width: 100%;
 
 		margin: auto;
-		transition: height 0.8s ease, filter 0.8s ease;
+		transition: height 0.8s ease, width 0.8s ease, filter 0.8s ease;
 	}
 
 	.gallery-img:hover,
 	.gallery-img:active {
 		height: 50%;
+		width: 90%
 	}
 
 	.card_container {
