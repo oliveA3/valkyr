@@ -17,6 +17,25 @@
 			snow.remove();
 		}, 2000);
 	};
+
+	document.onclick = (e) => {
+		let body = document.querySelector("body");
+		let snow = document.createElement("span");
+		let x = e.pageX;
+		let y = e.pageY;
+		let size = Math.random() * 35;
+
+		snow.style.left = x + "px";
+		snow.style.top = y + "px";
+		snow.style.width = size + "px";
+		snow.style.height = size + "px";
+
+		body.appendChild(snow);
+
+		setTimeout(() => {
+			snow.remove();
+		}, 2000);
+	};
 }
 
 /*Snowflakes Animation*/ {
@@ -70,8 +89,13 @@
 	const screenHeight = window.innerHeight;
 
 	function moveDragon() {
-		const targetX = Math.random() * (screenWidth - 300);
-		const targetY = Math.random() * (screenHeight - 300);
+		let targetX = Math.random() * (screenWidth - 300);
+		let targetY = Math.random() * (screenHeight - 300);
+
+		if (screenWidth < 900) {
+			targetX -= 80;
+			targetY -= 80;
+		}
 
 		const duration = 2000;
 		const startTime = performance.now();
@@ -81,8 +105,13 @@
 			var progress = elapsedTime / duration;
 			progress = Math.min(progress, 1);
 
-			const newX = 200 + targetX * progress;
-			const newY = 200 + targetY * progress;
+			let newX = 200 + targetX * progress;
+			let newY = 200 + targetY * progress;
+
+			if (screenWidth < 900) {
+				newX -= 70;
+				newY -= 70;
+			}
 
 			const dx = targetX - 200;
 			const dy = targetY - 200;
@@ -111,6 +140,11 @@
 	}
 
 	dragon.addEventListener("mouseenter", () => {
+		moveDragon();
+		animateWings();
+	});
+
+	dragon.addEventListener("click", () => {
 		moveDragon();
 		animateWings();
 	});
