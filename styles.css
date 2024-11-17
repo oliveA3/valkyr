@@ -19,7 +19,7 @@ body {
 
 	display: flex;
 	flex-direction: column;
-	overflow-x: hidden;
+	overflow: hidden;
 
 	margin: auto;
 	font-family: Montserrat;
@@ -144,7 +144,7 @@ span {
 	border-radius: 10px;
 
 	filter: grayscale(100) blur(0.4px);
-	transition: width 0.7s ease, filter 0.8s ease, opacity 0.5s ease;
+	transition: width 1.1s ease-in-out, height 0.8s ease-in-out, filter 0.8s ease, opacity 0.5s ease;
 }
 
 .gallery-img:hover,
@@ -168,6 +168,11 @@ span {
 }
 
 /*<<<-------------MEDIA QUERIES------------->>>*/
+@media screen and (max-width: 900px) {
+	body {
+		overflow-y: scroll;
+	}
+}
 @media screen and (max-width: 650px) {
 	* {
 		box-sizing: border-box;
@@ -196,7 +201,6 @@ span {
 		width: 100%;
 
 		margin: auto;
-		transition: height 0.8s ease, width 0.8s ease, filter 0.8s ease;
 	}
 
 	.gallery-img:hover,
