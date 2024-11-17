@@ -135,8 +135,8 @@
 		const leftWing = document.querySelector(".left_wing");
 		const rightWing = document.querySelector(".right_wing");
 
-		leftWing.style.animation = "flapLeft 5s infinite linear";
-		rightWing.style.animation = "flapRight 5s infinite linear";
+		leftWing.style.animation = "flapLeft 3s infinite linear";
+		rightWing.style.animation = "flapRight 3s infinite linear";
 	}
 
 	dragon.addEventListener("mouseenter", () => {
