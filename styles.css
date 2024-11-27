@@ -215,7 +215,7 @@ span {
 
 	.card_container {
 		position: relative;
-		margin: 6dvh auto 20dvh auto;
+		margin: 35dvh auto 20dvh auto;
 		padding: 0 80px;
 		top: 90px;
 
@@ -223,10 +223,10 @@ span {
 	}
 
 	.gallery_container:hover ~ .card_container {
-		transform: translateY(280px)
+		transform: translateY(180px)
 	}
 
 	.gallery_container:active ~ .card_container {
-		transform: translateY(280px)
+		transform: translateY(180px)
 	}
 }
