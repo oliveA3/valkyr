@@ -40,7 +40,6 @@
 
 /*Snowflakes Animation*/ {
 	const canvas = document.getElementById("snow_canvas");
-
 	const ctx = canvas.getContext("2d");
 	const snowflakes = [];
 
