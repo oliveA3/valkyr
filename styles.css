@@ -154,7 +154,7 @@ span {
 
 .gallery-img:hover,
 .gallery-img:active {
-	width: 300px;
+	width: 150px;
 	opacity: 0.9;
 
 	object-fit: contain;
@@ -176,7 +176,7 @@ span {
 
 /*<<<-------------MEDIA QUERIES------------->>>*/
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 850px) {
 	* {
 		box-sizing: border-box;
 	}
